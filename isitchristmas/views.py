@@ -8,7 +8,7 @@ def index(request):
     day = now.day
 
     is_it_christmas = False
-    if (month == 12 and day == 25):
+    if (month == 11 and day == 24):
         is_it_christmas = True
 
     return render(
