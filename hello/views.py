@@ -7,7 +7,7 @@ def hello_view(request):
 
 
 def hello2_view(request):
-    return render(request, 'hello.html')
+    return render(request, 'szuflatka2/hello.html')
 
 
 def adam_view(request):
@@ -27,7 +27,7 @@ def name_view(request, name):
 def name_view2(request, name):
     return render(
         request,
-        'name.html',
+        'hello/name.html',
         context={
             'name': name
         }
