@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        h1 {
+            font-size: 90px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1 style="font-size: 90px; font-weight:bold; text-align: center; color: {{ color }}">{{ value }}</h1>
+    {% if is_it_christmas %}
+        <h1 style="color: blue">TAK</h1>
+    {% else %}
+        <h1 style="color: red">NIE</h1>
+    {% endif %}
 </body>
 </html>
