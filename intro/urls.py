@@ -23,4 +23,5 @@ urlpatterns = [
     path('isitchristmas/', include('isitchristmas.urls')),
     path('fruits/', include('fruits.urls')),
     path('links/', include('links.urls')),
+    path('inheritance/', include('inheritance.urls')),
 ]

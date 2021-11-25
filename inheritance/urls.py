@@ -1,11 +1,10 @@
 from django.urls import path
 
-from links import views
+from inheritance import views
 
-app_name = 'links'
+app_name = 'inheritance'
 
 urlpatterns = [
     path('first/', views.first, name='first'),
     path('second/', views.second, name='second'),
-    path('third/<str:value>/', views.third, name='third'),
 ]

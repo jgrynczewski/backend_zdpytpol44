@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'isitchristmas',
     'fruits',
     'links',
+    'inheritance',
 ]
 
 MIDDLEWARE = [
