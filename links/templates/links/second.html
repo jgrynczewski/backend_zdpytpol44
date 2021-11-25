@@ -8,6 +8,13 @@
     <h2>To jest druga strona</h2>
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet aspernatur assumenda deleniti dignissimos dolor ducimus, et facere harum inventore magnam magni mollitia nobis quo repudiandae sed temporibus velit vitae?
 
-    <p>Przejdź do strony <a href="{% url 'first' %}">pierwszej</a>.</p>
+    <!--<p>Przejdź do strony <a href="{% url 'first' %}">pierwszej</a>.</p>-->
+
+    <!-- linkowanie statyczne -->
+    <!--<p>Przejdź do strony <a href="/links/third/abc">trzeciej</a>.</p>-->
+    <!-- Liniki dynamicze z parametrem -->
+    <p>Przejdź do strony <a href="{% url 'third' 'abc' %}">trzeciej</a>.</p>
+
+
 </body>
 </html>

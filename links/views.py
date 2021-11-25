@@ -13,3 +13,13 @@ def second(request):
         request,
         'links/second.html'
     )
+
+
+def third(request, value):
+    return render(
+        request,
+        'links/third.html',
+        context={
+            'value': value,
+        }
+    )
