@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'fruits',
     'links',
     'inheritance',
+    'form_app',
 ]
 
 MIDDLEWARE = [
