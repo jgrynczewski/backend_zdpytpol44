@@ -32,3 +32,7 @@ def name_view2(request, name):
             'name': name
         }
     )
+
+
+def index(request):
+    return HttpResponse("TO JEST ROOT APLIKACJI")
