@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 
+from form_app5.models import Task
+
 
 def register(request):
     return render(
@@ -15,11 +17,12 @@ def tasks_list(request):
 
     with open('tasks.txt', 'a+') as f:
         if task:
-            f.write(task + "\n")
+            # Create
+            Task.objects.create(text=task)
             return redirect('form_app5:tasks-list')
 
-    with open('tasks.txt', 'r') as f:
-        tasks = f.readlines()
+    # Read
+    tasks = Task.objects.all()
 
     return render(
         request,
