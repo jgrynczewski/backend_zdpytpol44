@@ -7,7 +7,7 @@
 <body>
     <ul>
         {% for task in tasks %}
-            <li>{{ task }}</li>
+            <li><a href="{% url 'form_app6:update' task.id %}">{{ task.text }}</a></li>
         {% endfor %}
     </ul>
 </body>
