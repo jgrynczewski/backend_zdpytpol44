@@ -1,14 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Rejestracja zadań</title>
-</head>
-<body>
+{% extends "form_app6/layout.html" %}
+
+{% block title %}
+    Rejestracja zadania
+{% endblock %}
+
+{% block body %}
     <form method="post">
         {% csrf_token %}
-        <input type="text" name="task">
-        <input type="submit" value="Zarejestruj">
+        <div class="col-6">
+            <input class="form-control" type="text" name="task">
+        </div>
+        <input class="btn btn-primary" type="submit" value="Zarejestruj">
     </form>
-</body>
-</html>
+{% endblock %}
