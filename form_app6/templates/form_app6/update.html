@@ -5,6 +5,10 @@
     <title>Akutalizacja zadania</title>
 </head>
 <body>
-    Modyfikacja zadania: {{ task.text }}
+    <h3>Modyfikacja zadania numer {{ task.id }}</h3>
+    <form method="post">
+        <input type="text" name="task" value="{{ task.text }}">
+        <input type="submit" value="Aktualizuj">
+    </form>
 </body>
 </html>

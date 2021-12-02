@@ -35,13 +35,15 @@ def tasks_list(request):
 
 def update(request, task_id):
 
-    # try:
-    #     task = Task.objects.get(id=task_id)
-    # except ObjectDoesNotExist:
-    #     raise Http404()
-
     task = get_object_or_404(Task, id=task_id)
 
+    if request.method == "POST":
+        updated_task = request.POST.get('task')
+        if updated_task:
+            task.text = updated_task
+            task.save()
+
+        return redirect('form_app6:tasks-list')
 
     return render(
         request,
