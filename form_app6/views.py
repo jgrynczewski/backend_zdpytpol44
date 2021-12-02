@@ -52,3 +52,12 @@ def update(request, task_id):
             'task': task,
         }
     )
+
+
+def delete(request, task_id):
+
+    if request.method == "POST":
+        task = get_object_or_404(Task, id=task_id)
+        task.delete()
+
+    return redirect('form_app6:tasks-list')
