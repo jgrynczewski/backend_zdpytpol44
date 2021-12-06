@@ -1,0 +1,225 @@
+>>> from relations.models import Capital
+>>> from relations.models import Country
+>>>
+>>> warsaw = Capital.objects.create(name="Warsaw")
+>>> dir(warsaw)
+['DoesNotExist', 'MultipleObjectsReturned', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '_
+_ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__',
+ '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setstate__', '__sizeof__', '__str__', '__subclass
+hook__', '__weakref__', '_check_column_name_clashes', '_check_constraints', '_check_default_pk', '_check_field_name_clashes', '_chec
+k_fields', '_check_id_field', '_check_index_together', '_check_indexes', '_check_local_fields', '_check_long_column_names', '_check_
+m2m_through_same_relationship', '_check_managers', '_check_model', '_check_model_name_db_lookup_clashes', '_check_ordering', '_check
+_property_name_related_field_accessor_clashes', '_check_single_primary_key', '_check_swappable', '_check_unique_together', '_do_inse
+rt', '_do_update', '_get_FIELD_display', '_get_expr_references', '_get_next_or_previous_by_FIELD', '_get_next_or_previous_in_order',
+ '_get_pk_val', '_get_unique_checks', '_meta', '_perform_date_checks', '_perform_unique_checks', '_prepare_related_fields_for_save',
+ '_save_parents', '_save_table', '_set_pk_val', '_state', 'check', 'clean', 'clean_fields', 'country', 'date_error_message', 'delete
+', 'from_db', 'full_clean', 'get_deferred_fields', 'id', 'name', 'objects', 'pk', 'prepare_database_save', 'refresh_from_db', 'save'
+, 'save_base', 'serializable_value', 'unique_error_message', 'validate_unique']
+>>> dir(warsaw)
+['DoesNotExist', 'MultipleObjectsReturned', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '_
+_ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__',
+ '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setstate__', '__sizeof__', '__str__', '__subclass
+hook__', '__weakref__', '_check_column_name_clashes', '_check_constraints', '_check_default_pk', '_check_field_name_clashes', '_chec
+k_fields', '_check_id_field', '_check_index_together', '_check_indexes', '_check_local_fields', '_check_long_column_names', '_check_
+m2m_through_same_relationship', '_check_managers', '_check_model', '_check_model_name_db_lookup_clashes', '_check_ordering', '_check
+_property_name_related_field_accessor_clashes', '_check_single_primary_key', '_check_swappable', '_check_unique_together', '_do_inse
+rt', '_do_update', '_get_FIELD_display', '_get_expr_references', '_get_next_or_previous_by_FIELD', '_get_next_or_previous_in_order',
+ '_get_pk_val', '_get_unique_checks', '_meta', '_perform_date_checks', '_perform_unique_checks', '_prepare_related_fields_for_save',
+ '_save_parents', '_save_table', '_set_pk_val', '_state', 'check', 'clean', 'clean_fields', 'country', 'date_error_message', 'delete
+', 'from_db', 'full_clean', 'get_deferred_fields', 'id', 'name', 'objects', 'pk', 'prepare_database_save', 'refresh_from_db', 'save'
+, 'save_base', 'serializable_value', 'unique_error_message', 'validate_unique']
+>>> warsaw.country
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", li
+ne 421, in __get__
+    raise self.RelatedObjectDoesNotExist(
+relations.models.Capital.country.RelatedObjectDoesNotExist: Capital has no country.
+>>>
+>>>
+>>> poland = Country(name="Poland")
+>>> poland.save()
+Traceback (most recent call last):
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in e
+xecute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: relations_country.capital_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\base.py", line 763, in save_base
+    updated = self._save_table(
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\base.py", line 868, in _save_table
+
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\base.py", line 906, in _do_insert
+    return manager._insert(
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_m
+ethod
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1416, in ex
+ecute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_
+with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in e
+xecute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: relations_country.capital_id
+>>> poland = Country(name="Poland", capital="Warsaw")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\base.py", line 485, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", li
+ne 310, in __set__
+    super().__set__(instance, value)
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", li
+ne 215, in __set__
+    raise ValueError(
+ValueError: Cannot assign "'Warsaw'": "Country.capital" must be a "Capital" instance.
+>>> poland = Country(name="Poland", capital=warsaw)
+>>> poland.save()
+>>> dir(poland)
+['DoesNotExist', 'MultipleObjectsReturned', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '_
+_ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__',
+ '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setstate__', '__sizeof__', '__str__', '__subclass
+hook__', '__weakref__', '_check_column_name_clashes', '_check_constraints', '_check_default_pk', '_check_field_name_clashes', '_chec
+k_fields', '_check_id_field', '_check_index_together', '_check_indexes', '_check_local_fields', '_check_long_column_names', '_check_
+m2m_through_same_relationship', '_check_managers', '_check_model', '_check_model_name_db_lookup_clashes', '_check_ordering', '_check
+_property_name_related_field_accessor_clashes', '_check_single_primary_key', '_check_swappable', '_check_unique_together', '_do_inse
+rt', '_do_update', '_get_FIELD_display', '_get_expr_references', '_get_next_or_previous_by_FIELD', '_get_next_or_previous_in_order',
+ '_get_pk_val', '_get_unique_checks', '_meta', '_perform_date_checks', '_perform_unique_checks', '_prepare_related_fields_for_save',
+ '_save_parents', '_save_table', '_set_pk_val', '_state', 'capital', 'capital_id', 'check', 'clean', 'clean_fields', 'date_error_mes
+sage', 'delete', 'from_db', 'full_clean', 'get_deferred_fields', 'id', 'name', 'objects', 'pk', 'prepare_database_save', 'refresh_fr
+om_db', 'save', 'save_base', 'serializable_value', 'unique_error_message', 'validate_unique']
+>>> poland.capital
+<Capital: Warsaw>
+>>> type(poland.capital)
+<class 'relations.models.Capital'>
+>>> warsaw.country
+<Country: Poland>
+>>> type(warsaw.country)
+<class 'relations.models.Country'>
+>>> poland.capital
+<Capital: Warsaw>
+>>> poland.captial_id
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Country' object has no attribute 'captial_id'
+>>> poland.capital_id
+3
+>>> warsaw.country
+<Country: Poland>
+>>> moscow = Capital.objects.create(name="Moscow")
+>>> berlin = Capital.objects.create(name="Berlin")
+>>> russia = Country.objects.create(name=Russia, capital=moscow)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Russia' is not defined
+>>> russia = Country.objects.create(name="Russia", capital=moscow)
+>>> germany = Country.objects.create(name="Germany", capital=berlin)
+>>>
+>>> Country.objects.all()
+<QuerySet [<Country: Poland>, <Country: Russia>, <Country: Germany>]>
+>>> Capital.objects.all()
+<QuerySet [<Capital: Warsaw>, <Capital: Moscow>, <Capital: Berlin>]>
+>>> Country.objects.filter(capital="Warsaw")
+Traceback (most recent call last):
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1823, in
+ get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'Warsaw'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_m
+ethod
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or
+_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or
+_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\sql\query.py", line 1393, in add_q
+
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\sql\query.py", line 1412, in _add_
+q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\sql\query.py", line 1347, in build
+_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\sql\query.py", line 1193, in build
+_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\fields\related_lookups.py", line 1
+17, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\jerem\PycharmProjects\backend_zdpytpol44\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in
+ get_prep_value
+    raise e.__class__(
+ValueError: Field 'id' expected a number but got 'Warsaw'.
+>>> warsaw
+<Capital: Warsaw>
+>>> warsaw = Capital.objects.get(name="Warsaw")
+>>> warsaw
+<Capital: Warsaw>
+>>> Country.objects.filter(capital=warsaw)
+<QuerySet [<Country: Poland>]>
+>>> Country.objects.get(capital=warsaw)
+<Country: Poland>
+>>> warsaw.country
+<Country: Poland>
+>>>
+>>> Country.objects.filter(capital_id=3)
+<QuerySet [<Country: Poland>]>
+>>> Country.objects.filter(capital__name="Warsaw")
+<QuerySet [<Country: Poland>]>
+>>> Country.objects.filter(capital_id__name="Warsaw")
+<QuerySet [<Country: Poland>]>
+>>> Country.objects.filter(capital_id__name__startswith="Wa")
+<QuerySet [<Country: Poland>]>
+>>> Country.objects.filter(capital__id=3)
+<QuerySet [<Country: Poland>]>
+>>> Country.objects.filter(capital_id=3)
+<QuerySet [<Country: Poland>]>
+>>>
+>>> Capital.objects.filter(country=poland)
+<QuerySet [<Capital: Warsaw>]>
+>>> Capital.objects.filter(country__name="Poland")
+<QuerySet [<Capital: Warsaw>]>
+>>> warsaw.country
+<Country: Poland>
+>>> Country.objects.all()
+<QuerySet [<Country: Poland>, <Country: Russia>, <Country: Germany>]>
+>>> warsaw.delete()
+(2, {'relations.Country': 1, 'relations.Capital': 1})
+>>> Country.objects.all()
+<QuerySet [<Country: Russia>, <Country: Germany>]>
