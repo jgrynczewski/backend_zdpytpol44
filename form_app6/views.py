@@ -3,11 +3,12 @@ from django.shortcuts import redirect
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import Http404
 from django.shortcuts import get_object_or_404
+from django.views.decorators.http import require_http_methods
 
 from form_app6.models import Task
 
 
-def register(request):
+def register(request):  # Create
     task = request.POST.get('task')
     if task:
         Task.objects.create(text=task)
@@ -20,7 +21,7 @@ def register(request):
     )
 
 
-def tasks_list(request):
+def tasks_list(request):  # Read
 
     tasks = Task.objects.all()
 
@@ -33,7 +34,7 @@ def tasks_list(request):
     )
 
 
-def update(request, task_id):
+def update(request, task_id):  # Update
 
     task = get_object_or_404(Task, id=task_id)
 
@@ -54,7 +55,8 @@ def update(request, task_id):
     )
 
 
-def delete(request, task_id):
+@require_http_methods(["POST"])
+def delete(request, task_id):  # Delete
 
     if request.method == "POST":
         task = get_object_or_404(Task, id=task_id)
