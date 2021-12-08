@@ -3,11 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Formularz 1</title>
+    <script>
+        function validate() {
+            var name = document.getElementById("name").value
+            if (name.includes("$")) {
+                alert("Zła wartość w polu name (usuń znak '$')");
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    </script>
 </head>
 <body>
-    <form method="POST">
+    <form method="POST" onsubmit="return validate();">
         {% csrf_token %}
-        <label>Imię:<input type="text" name="name"></label>
+        <label>Imię:<input type="text" name="name" id="name" required></label>
         <label>Email:<input type="email" name="email"></label>
         <label>Kategoria:<select name="category">
             <option value="question">Pytanie</option>

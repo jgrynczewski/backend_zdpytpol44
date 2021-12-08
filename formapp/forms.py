@@ -1,7 +1,9 @@
 from django import forms
 from django.forms.widgets import NumberInput
 
+from formapp.models import Message
 
+# Formularz Django
 class ContactForm(forms.Form):
     CHOICES = [
         ("question", "Pytanie"),
@@ -25,3 +27,25 @@ class ContactForm(forms.Form):
         label="Ulubiona godzina",
         widget=NumberInput(attrs={"type": "time"})
     )
+
+
+# Formularz modelu
+class MessageForm(forms.ModelForm):
+    class Meta:
+        model = Message
+        # fields = ['name', 'email', 'category', ...]
+        # exclude = ['body']
+        fields = "__all__"
+        labels = {
+            "name": "Imię",
+            "email": "Email",
+            "category": "Kategoria",
+            "subject": "Tytuł",
+            "body": "Treść",
+            "date": "Ulubiona data",
+            "time": "Ulubiona godzia"
+        }
+        widgets = {
+            "date": NumberInput(attrs={'type': 'date'}),
+            "time": NumberInput(attrs={'type': 'time'})
+        }

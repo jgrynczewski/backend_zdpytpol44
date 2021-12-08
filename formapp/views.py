@@ -3,6 +3,7 @@ from django.shortcuts import redirect
 
 from formapp.models import Message
 from formapp.forms import ContactForm
+from formapp.forms import MessageForm
 
 # Formularz HTML
 def contact1(request):
@@ -56,4 +57,20 @@ def contact2(request):
         context={
             'form': form,
         }
+    )
+
+
+# Formularze modelu
+def contact3(request):
+
+    if request.method == "POST":
+        form = MessageForm(request.POST)
+        form.save()
+
+    form = MessageForm()
+
+    return render(
+        request,
+        'formapp/form3.html',
+        context={"form": form}
     )
