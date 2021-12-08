@@ -1,6 +1,7 @@
 from django import forms
 from django.forms.widgets import NumberInput
 
+
 class ContactForm(forms.Form):
     CHOICES = [
         ("question", "Pytanie"),

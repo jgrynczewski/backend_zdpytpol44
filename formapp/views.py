@@ -31,7 +31,24 @@ def contact1(request):
 # Formularz Django
 def contact2(request):
 
-    form = ContactForm()
+    if request.method=="POST":
+        form = ContactForm(request.POST)  # bound form - formularz związany
+        if form.is_valid():
+            data = form.cleaned_data
+
+            Message.objects.create(
+                name=data.get('name'),
+                email=data.get('email'),
+                category=data.get('category'),
+                subject=data.get('subject'),
+                body=data.get('body'),
+                date=data.get('date'),
+                time=data.get('time')
+            )
+
+            return redirect("formapp:contact2")
+
+    form = ContactForm()  # unbound form - formularz niezwiązany
 
     return render(
         request,
