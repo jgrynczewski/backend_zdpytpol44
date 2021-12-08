@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Widok osoby</title>
+</head>
+<body>
+    {% comment %}
+        Do zmiennej szablonowej w przypadku generycznego widoku szczegółu odwołujemy
+        się poprzez nazwę object lub nazwa modelu z małej
+    {% endcomment %}
+    <p>Imię: {{ person.name }}</p>
+    <p>Wiek: {{ person.age }}</p>
+    <p>Miasto: {{ person.city }}</p>
+</body>
+</html>
