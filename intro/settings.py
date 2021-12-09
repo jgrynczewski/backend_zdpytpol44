@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'relations',
     'formapp',
     'viewapp',
+    'auth_user',
 ]
 
 MIDDLEWARE = [
