@@ -35,4 +35,5 @@ urlpatterns = [
     path('formapp/', include('formapp.urls')),
     path('viewapp/', include('viewapp.urls')),
     path('auth/', include('auth_user.urls')),
+    path('uwierzytelnienie/', include('uwierzytelnienie.urls')),
 ]

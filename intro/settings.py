@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'formapp',
     'viewapp',
     'auth_user',
+    'uwierzytelnienie',
 ]
 
 MIDDLEWARE = [
