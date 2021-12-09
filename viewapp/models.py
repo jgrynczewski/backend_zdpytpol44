@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 
 
 class Person(models.Model):
@@ -9,3 +10,5 @@ class Person(models.Model):
     def __str__(self):
         return f"{self.name} z {self.city} <{self.age}>"
 
+    def get_absolute_url(self):
+        return reverse('viewapp:create-person3')

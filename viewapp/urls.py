@@ -28,4 +28,8 @@ urlpatterns = [
     # Dla widoku generycznego detalu (DetailView) zmienna w konwerterze funkcji
     # path musi nazywać się pk
     path('person3/<int:pk>/', views.PersonDetailView.as_view(), name='person-detail3'),
+
+    path('create-person/', views.create_person, name='create-person'),
+    path('create-person2/', views.PersonCreateView.as_view(), name='create-person2'),
+    path('create-person3/', views.PersonGenericCreateView.as_view(), name='create-person3'),
 ]
