@@ -36,4 +36,5 @@ urlpatterns = [
     path('viewapp/', include('viewapp.urls')),
     path('auth/', include('auth_user.urls')),
     path('uwierzytelnienie/', include('uwierzytelnienie.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

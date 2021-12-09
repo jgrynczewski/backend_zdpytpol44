@@ -5,6 +5,10 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth import logout
 
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+
+
 # Create your views here.
 def login_view(request):
 
@@ -36,4 +40,23 @@ def home(request):
     return render(
         request,
         'uwierzytelnienie/home.html',
+    )
+
+
+def register(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+        return redirect('uwierzytelnienie:login-view')
+
+    form = UserCreationForm()
+
+    return render(
+        request,
+        'uwierzytelnienie/register.html',
+        context={
+            'form': form,
+        }
     )
